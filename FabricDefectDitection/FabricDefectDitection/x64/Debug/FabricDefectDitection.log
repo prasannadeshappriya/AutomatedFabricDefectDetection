@@ -1,0 +1,23 @@
+﻿  frmHomePage.cpp
+frmHomePage.cpp(69): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+frmHomePage.cpp(170): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+frmHomePage.cpp(237): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\opencv-3.4.0\build\include\opencv2\core\cvstd.hpp(575): warning C4793: 'cv::String::String': function compiled as native:
+  	Found an intrinsic not supported in managed code
+c:\opencv-3.4.0\build\include\opencv2\core\mat.inl.hpp(482): warning C4793: 'cv::Mat::Mat': function compiled as native:
+  	Found an intrinsic not supported in managed code
+c:\opencv-3.4.0\build\include\opencv2\core\mat.inl.hpp(803): warning C4793: 'cv::Mat::release': function compiled as native:
+  	Found an intrinsic not supported in managed code
+c:\opencv-3.4.0\build\include\opencv2\core\mat.inl.hpp(2118): warning C4793: 'cv::SparseMat::addref': function compiled as native:
+  	Found an intrinsic not supported in managed code
+c:\opencv-3.4.0\build\include\opencv2\core\mat.inl.hpp(3718): warning C4793: 'cv::UMat::addref': function compiled as native:
+  	Found an intrinsic not supported in managed code
+c:\opencv-3.4.0\build\include\opencv2\core\ptr.inl.hpp(67): warning C4793: 'cv::detail::PtrOwner::incRef': function compiled as native:
+  	Found an intrinsic not supported in managed code
+c:\opencv-3.4.0\build\include\opencv2\core\ptr.inl.hpp(72): warning C4793: 'cv::detail::PtrOwner::decRef': function compiled as native:
+  	Found an intrinsic not supported in managed code
+c:\opencv-3.4.0\build\include\opencv2\core\mat.inl.hpp(701): warning C4793: 'cv::Mat::operator=': function compiled as native:
+  	Found an intrinsic not supported in managed code
+  frmHomePage.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+  FabricDefectDitection.vcxproj -> F:\University of Moratuwa (EFAC)\FYP\Project\FabricDefectDitection\x64\Debug\FabricDefectDitection.exe
+  FabricDefectDitection.vcxproj -> F:\University of Moratuwa (EFAC)\FYP\Project\FabricDefectDitection\x64\Debug\FabricDefectDitection.pdb (Partial PDB)
