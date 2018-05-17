@@ -1,11 +1,12 @@
-﻿  frmHomePage.cpp
-frmHomePage.cpp(69): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-frmHomePage.cpp(170): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-frmHomePage.cpp(237): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+﻿  Iprocess.cpp
+Iprocess.cpp(47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 c:\opencv-3.4.0\build\include\opencv2\core\cvstd.hpp(575): warning C4793: 'cv::String::String': function compiled as native:
   	Found an intrinsic not supported in managed code
 c:\opencv-3.4.0\build\include\opencv2\core\mat.inl.hpp(482): warning C4793: 'cv::Mat::Mat': function compiled as native:
   	Found an intrinsic not supported in managed code
+f:\university of moratuwa (efac)\fyp\project\fabricdefectditection\fabricdefectditection\iprocess.cpp(38): warning C4715: 'Iprocess::openImage': not all control paths return a value
+f:\university of moratuwa (efac)\fyp\project\fabricdefectditection\fabricdefectditection\iprocess.cpp(179): warning C4715: 'Iprocess::applyThreshold': not all control paths return a value
+f:\university of moratuwa (efac)\fyp\project\fabricdefectditection\fabricdefectditection\iprocess.cpp(146): warning C4715: 'Iprocess::applyMorphology': not all control paths return a value
 c:\opencv-3.4.0\build\include\opencv2\core\mat.inl.hpp(803): warning C4793: 'cv::Mat::release': function compiled as native:
   	Found an intrinsic not supported in managed code
 c:\opencv-3.4.0\build\include\opencv2\core\mat.inl.hpp(2118): warning C4793: 'cv::SparseMat::addref': function compiled as native:

@@ -139,12 +139,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="frmHomePage.cpp" />
+    <ClCompile Include="Iprocess.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmHomePage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Iprocess.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmHomePage.resx">

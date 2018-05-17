@@ -1,4 +1,6 @@
 #pragma once
+#include <opencv2/core/core.hpp>
+#include "Iprocess.h"
 
 namespace FabricDefectDitection {
 
@@ -59,6 +61,11 @@ namespace FabricDefectDitection {
 
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Button^  bnSave;
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::Label^  label7;
+	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::Label^  label9;
+	private: System::Windows::Forms::Label^  label10;
 
 
 
@@ -104,6 +111,11 @@ namespace FabricDefectDitection {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->chkMorphology = (gcnew System::Windows::Forms::CheckBox());
 			this->bnSave = (gcnew System::Windows::Forms::Button());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPreviewWindow))->BeginInit();
@@ -337,11 +349,61 @@ namespace FabricDefectDitection {
 			this->bnSave->UseVisualStyleBackColor = true;
 			this->bnSave->Click += gcnew System::EventHandler(this, &frmHomePage::bnSave_Click);
 			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(1239, 311);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(46, 17);
+			this->label6->TabIndex = 8;
+			this->label6->Text = L"label6";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(1239, 339);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(46, 17);
+			this->label7->TabIndex = 8;
+			this->label7->Text = L"label6";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(1239, 367);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(46, 17);
+			this->label8->TabIndex = 8;
+			this->label8->Text = L"label6";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(1239, 410);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(46, 17);
+			this->label9->TabIndex = 8;
+			this->label9->Text = L"label6";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(1239, 438);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(46, 17);
+			this->label10->TabIndex = 8;
+			this->label10->Text = L"label6";
+			// 
 			// frmHomePage
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1447, 876);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->bnSave);
 			this->Controls->Add(this->groupBox5);
 			this->Controls->Add(this->groupBox4);
@@ -366,14 +428,15 @@ namespace FabricDefectDitection {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbMorpOperator))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbMorpElement))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
+	public:
+		Iprocess ipModule;
+
 	private: 
 		System::Void btnOpen_Click(System::Object^  sender, System::EventArgs^  e);
-		System::Void openImage();
-		System::Void applyMorphology(int _morph_elem, int _morph_size, int _morph_operator);
-		System::Void applyThreshold(int _type, int _value);
 		System::Void tbThreshType_Scroll(System::Object^  sender, System::EventArgs^  e);
 		System::Void tbThreshValue_Scroll(System::Object^  sender, System::EventArgs^  e);
 		System::Void chkThresholding_CheckedChanged(System::Object^  sender, System::EventArgs^  e);
@@ -382,5 +445,6 @@ namespace FabricDefectDitection {
 		System::Void tbMorpOperator_Scroll(System::Object^  sender, System::EventArgs^  e);
 		System::Void tbMorpKernel_Scroll(System::Object^  sender, System::EventArgs^  e);
 		System::Void bnSave_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void refresh();
 };
 }
