@@ -59,6 +59,12 @@ System::Void FabricDefectDitection::frmHomePage::tbThreshType_Scroll(System::Obj
 	}
 }
 
+System::Void FabricDefectDitection::frmHomePage::btnProcess_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	this->ipModule.startProcess(
+		ipModule.openImage(FilePathString::filename), this->pbWindow);
+}
+
 System::Void FabricDefectDitection::frmHomePage::tbThreshValue_Scroll(System::Object^  sender, System::EventArgs^  e)
 {
 	if (chkThresholding->Checked) {

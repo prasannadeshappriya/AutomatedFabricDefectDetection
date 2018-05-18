@@ -11,7 +11,88 @@ cv::Mat _image;
 
 void Iprocess::startProcess(cv::Mat frame, System::Windows::Forms::Control^ display)
 {
+	int MIN = 0;
+	int errorFlag = 1800;
+	//processImage()
+	//_morphArgs: 0-> _morph_elem, 1-> _morph_size, 2-> _morph_operator
+	//_thresholdArgs: 0-> _type, 1-> _value
+	//Operation; 0: Show, 1: Mophalogy, 2: Thresholding,
+	cv::Mat resultFrame, tmpFrame, grayScaleFrame;
 
+	tmpFrame = frame;
+	int count, t_count, image_size;
+
+	//Process 01;
+	int threshArgs[] = { 0,218};
+	frame = this->processImage(frame, NULL, threshArgs, 2, display);
+	int morphArgs[] = { 0,3,0 };
+	frame = this->processImage(frame, morphArgs, NULL, 1, display);
+	morphArgs[1] = 2;
+	frame = this->processImage(frame, morphArgs, NULL, 1, display);
+	grayScaleFrame = cv::Mat();
+	cv::cvtColor(frame, grayScaleFrame, CV_BGR2GRAY);
+	t_count = 0;
+	t_count = cv::countNonZero(grayScaleFrame);
+	t_count = (grayScaleFrame.cols * grayScaleFrame.rows) - t_count;
+	image_size = (grayScaleFrame.cols * grayScaleFrame.rows) - errorFlag;
+	if (count < t_count && t_count > MIN && t_count < image_size) {
+		count = t_count;
+		resultFrame = frame;
+	}
+
+	//Process 02;
+	frame = tmpFrame;
+	morphArgs[0] = 0;
+	morphArgs[2] = 1;
+	morphArgs[1] = 2;
+	frame = this->processImage(frame, morphArgs, NULL, 1, display);
+	threshArgs[1] = 179;
+	frame = this->processImage(frame, NULL, threshArgs, 2, display);
+	morphArgs[0] = 1; 
+	morphArgs[2] = 2; 
+	morphArgs[1] = 3;
+	frame = this->processImage(frame, morphArgs, NULL, 1, display);
+	grayScaleFrame = cv::Mat();
+	cv::cvtColor(frame, grayScaleFrame, CV_BGR2GRAY);
+	t_count = cv::countNonZero(grayScaleFrame);
+	t_count = (grayScaleFrame.cols * grayScaleFrame.rows) - t_count;
+	image_size = (grayScaleFrame.cols * grayScaleFrame.rows) - errorFlag;
+	if (count < t_count && t_count > MIN && t_count < image_size) {
+		count = t_count;
+		resultFrame = frame;
+	}
+
+	//Process 03;
+	frame = tmpFrame;
+	morphArgs[0] = 0;
+	morphArgs[2] = 1;
+	morphArgs[1] = 2;
+	frame = this->processImage(frame, morphArgs, NULL, 1, display);
+
+	threshArgs[1] = 202;
+	frame = this->processImage(frame, NULL, threshArgs, 2, display);
+
+	morphArgs[0] = 0;
+	morphArgs[2] = 2;
+	morphArgs[1] = 3;
+	frame = this->processImage(frame, morphArgs, NULL, 1, display);
+
+	threshArgs[1] = 100;
+	threshArgs[0] = 1;
+	frame = this->processImage(frame, NULL, threshArgs, 2, display);
+	
+	grayScaleFrame = cv::Mat();
+	cv::cvtColor(frame, grayScaleFrame, CV_BGR2GRAY);
+	t_count = 0;
+	t_count = cv::countNonZero(grayScaleFrame);
+	t_count = (grayScaleFrame.cols * grayScaleFrame.rows) - t_count;
+	image_size = (grayScaleFrame.cols * grayScaleFrame.rows) - errorFlag;
+	if (count < t_count && t_count > MIN && t_count < image_size) {
+		count = t_count;
+		resultFrame = frame;
+	}
+
+	this->displayFrame(resultFrame, display);
 }
 
 cv::Size Iprocess::getCustomResolution(cv::Mat image)
@@ -74,7 +155,7 @@ cv::Mat Iprocess::processImage(
 	System::Windows::Forms::Control^ display) {
 	//_morphArgs: 0-> _morph_elem, 1-> _morph_size, 2-> _morph_operator
 	//_thresholdArgs: 0-> _type, 1-> _value
-	//Operation; 0: Show, 0: Thresholding, 1: Mophalogy
+	//Operation; 0: Show, 1: Mophalogy, 2: Thresholding
 
 	if (_operation == 0) {
 		resize(image, image, getCustomResolution(image));
@@ -162,11 +243,10 @@ cv::Mat Iprocess::applyThreshold(int _type, int _value, cv::Mat image) {
 		4: Threshold to Zero Inverted
 		*/
 		
-		//threshold(image, image, threshold_value, max_BINARY_value, threshold_type);
-		//adaptiveThreshold(src, dst, maxValue, adaptiveMethod, thresholdType, blockSize, C);
+		threshold(image, image, threshold_value, max_BINARY_value, threshold_type);
 
-		cv::adaptiveThreshold(image, image, max_value,
-			cv::ADAPTIVE_THRESH_GAUSSIAN_C, threshold_type, 20, 2);
+		//adaptiveThreshold(src, dst, maxValue, adaptiveMethod, thresholdType, blockSize, C);
+		//cv::adaptiveThreshold(image, image, max_value, cv::ADAPTIVE_THRESH_GAUSSIAN_C, threshold_type, 20, 2);
 
 		cvtColor(image, image, cv::COLOR_GRAY2RGB);
 		resize(image, image, getCustomResolution(image));

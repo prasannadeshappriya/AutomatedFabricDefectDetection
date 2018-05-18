@@ -4,6 +4,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <msclr/marshal.h>
+#include <vector>
 
 ref class Iprocess
 {
